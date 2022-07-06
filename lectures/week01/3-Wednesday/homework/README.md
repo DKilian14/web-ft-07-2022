@@ -177,6 +177,15 @@ Print a triangle consisting of * characters like this:
 *******
 ```
 
+print(
+    """
+    *
+   ***
+  *****
+ *******
+    """
+)
+
 #### 6. Multiplication Table
 
 Print the multiplication table for numbers from 1 up to 10. Example output:
