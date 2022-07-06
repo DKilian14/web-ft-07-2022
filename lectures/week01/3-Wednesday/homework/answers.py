@@ -1,5 +1,6 @@
 
 def calculate():
+    guests = int(input("Split how many ways?"))
     total_bill = float(input("what is the bill total?: "))
     service = input(
         """
@@ -10,19 +11,23 @@ def calculate():
     bad   
     """
     )
+    total_per_guest = total_bill/guests
 
-    print(total_bill)
+    
 
     if (service == 'good') :
-        return print("%.2f" % (total_bill*.20)) 
+        tip = "%.2f" % (total_bill*.20) 
     elif (service =='fair') :
-        return print("%.2f" % (total_bill*.15))
+        tip = "%.2f" % (total_bill*.15) 
     elif (service == 'bad'):
-        return print("%.2f" % (total_bill*.10))
+        tip = "%.2f" % (total_bill*.10) 
     else: 
         return print("next time, enter the service as either 'good','fair', of 'bad'.")
 
 
+    print(f'tip amount: {tip}')
+    print(f'total amount: {total_bill}')
+    print(f'Amount per person: {total_per_guest}')
 
 
-tipTotal = calculate()
+calculated_total = calculate()
