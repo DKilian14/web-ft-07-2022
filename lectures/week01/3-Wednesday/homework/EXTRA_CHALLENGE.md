@@ -16,3 +16,13 @@ for  each_triangle in range(1,triangles_to_try+1):
 
 Given a number, print its factors. What are factors? Read through [this article on finding the factors of a number](https://www.khanacademy.org/math/pre-algebra/factors-multiples/divisibility-and-factors/v/finding-factors-of-a-number
 ).
+
+num = int(input('Provide a number you would like the factors to: '))
+
+factors = []
+
+for every_number in range(1,num+1):
+    if num % every_number == 0:
+        factors.append(every_number)
+
+print(f'Factors of {num} is {factors}')

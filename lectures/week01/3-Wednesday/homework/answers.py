@@ -1,7 +1,10 @@
-triangles_to_try = 100
 
-for  each_triangle in range(1,triangles_to_try+1):
-    tri_num = (each_triangle * (each_triangle+1))/2
-    print(f'triangle {each_triangle} has a triangle number of {tri_num}')
+num = int(input('Provide a number you would like the factors to: '))
 
+factors = []
 
+for every_number in range(1,num+1):
+    if num % every_number == 0:
+        factors.append(every_number)
+
+print(f'Factors of {num} is {factors}')
