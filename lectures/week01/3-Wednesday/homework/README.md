@@ -40,6 +40,35 @@ Hints:
 - Remember that you need to convert the input from the user input to floats instead of ints. Use the `float` function instead of the `int` function.
 - To format a float number as a dollar value, use Python's formatting syntax: `"%.2f" % amount`
 
+
+def calculate():
+    total_bill = float(input("what is the bill total?: "))
+    service = input(
+        """
+
+    Was the service: 
+    good 
+    fair 
+    bad   
+    """
+    )
+
+    print(total_bill)
+
+    if (service == 'good') :
+        return print("%.2f" % (total_bill*.20)) 
+    elif (service =='fair') :
+        return print("%.2f" % (total_bill*.15))
+    elif (service == 'bad'):
+        return print("%.2f" % (total_bill*.10))
+    else: 
+        return print("next time, enter the service as either 'good','fair', of 'bad'.")
+
+
+
+
+tipTotal = calculate()
+
 #### 2. Tip Calculator 2
 
 Allow the ability to divide the check into a equal parts amount a number of people. The user will enter the number of people to be divided amongst. Example session:
