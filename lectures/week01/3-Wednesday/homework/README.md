@@ -132,6 +132,17 @@ Do you want another? no
 Bye
 ```
 
+want_coins = 'yes'
+num_coins = 0
+
+while want_coins == 'yes':
+    print(f'you have {num_coins} coin(s)')
+    want_coins = input("would you like a coin [yes/no]? ")
+    if want_coins == 'yes':
+        num_coins+=1
+    else:
+        print('bye')
+
 #### 4. Print a Box
 
 Given a height and width, input by the user, print a box consisting of * characters as its border. Example session:
