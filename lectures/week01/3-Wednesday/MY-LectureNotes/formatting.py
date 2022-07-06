@@ -1,7 +1,11 @@
 
 # Create a variable called first_name and set the value to your first name
 
+<<<<<<< HEAD
 first_name = 'Dan'
+=======
+first_name = "Veronica"
+>>>>>>> 85db7a0fa89b9a23badf29d16d40664739099d09
 
 # create a variable called last_name and set the value to your last name
 
@@ -34,7 +38,6 @@ email = first_name + "." + last_name + "@" + company_name + ".com"
 print(email)
 
 # harry.potter@DigitalCrafts.com
-
 
 
 # Using the firstname and lastname variables, generate a username to a new variable and print it to the console. The username should follow this format: first name, underscore, lastname.
