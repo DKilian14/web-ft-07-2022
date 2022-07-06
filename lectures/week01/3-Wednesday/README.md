@@ -1,6 +1,6 @@
 # Week 1 - Tuesday
 
-## Redirecting Text Files & Python 101
+## Redirecting Text Files & Python 101..
 
 ## 📍Learning Objectives
 After completing this lesson, you will be able to:
