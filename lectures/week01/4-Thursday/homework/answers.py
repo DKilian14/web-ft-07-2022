@@ -64,8 +64,8 @@
 # ---------------------------ANSWER-----------------------------------------
 
 
-# matrix1 = [[1,3],[2,4]]
-# matrix2 = [[5,2],[1,0]]
+# matrix1 = [[1,3],[2,4],[1,1]]
+# matrix2 = [[5,2],[1,0],[1,1]]
 # matrix3 = []
 
 # for i in range(len(matrix1)):
@@ -137,3 +137,94 @@
 #     statement_index +=1
 # statement = ''.join(statement)
 # print(statement)
+
+############################## 6. Long-long Vowels
+
+# Given a word as a string, print the result of extending any long vowels to the length of 5. 
+
+# Examples:
+
+# ```
+# Good => Goooood 
+# Cheese => Cheeeeese 
+# Man => Man 
+# Spoon => Spooooon 
+# ```
+
+# --------------------------------ANSWER---------------------------------
+
+# vowels = ['a','e','i','o','u']
+# word = list(input('Provide a word:  '))
+# word_index = 0
+
+# while word_index < len(word):
+#     vowel_index = 0
+#     while vowel_index < len(vowels):
+#         if vowels[vowel_index] == word[word_index]:
+#             word[word_index] = word[word_index]*5
+#         vowel_index +=1
+#     word_index += 1
+
+# print("".join(word))
+
+################################################# 7. Caesar Cipher
+
+# Given a string, print the Caesar Cipher (or ROT13) of that string. What is Caesar Cipher? [Learn about it here](http://practicalcryptography.com/ciphers/caesar-cipher/).
+
+# Use your solution to decipher the following text: "lbh zhfg hayrnea jung lbh unir yrnearq"
+
+
+# ---------------------------ANSWER-----------------------------------
+
+
+# iterate through the message 
+# #check each letter
+####iterate through the key [[a,b],[b,c]]
+######if there is a match, change the value of the character of the message to the corresponding value in the key. 
+
+# message = list(input('Enter your super secret message: '))
+# key = [['a','k'],['b','l'],['c','m'],['d','n'],['e','o'],['f','p'],['g','q'],['h','r'],['i','s'],
+#        ['j','t'],['k','u'],['l','v'],['m','w'],['n','x'],['o','y'],['p','z'],['q','a'],['r','b'],
+#        ['s','c'],['t','d'],['u','e'],['v','f'],['w','g'],['x','h'],['y','i'],['z','j']]
+
+# message_index = 0
+
+# while message_index < len(message):
+#     key_index = 0
+#     while key_index < len(key):
+#         print(message)
+#         print(message[message_index])
+#         if key[key_index][0] == message[message_index]:
+#             message[message_index] = key[key_index][1]
+#             # stop the < while key_index < len(key): > loop
+#             key_index = len(key)
+#         key_index +=1
+#     message_index +=1
+    
+# print(message)
+
+################################################# 7.1 Caesar Cipher (cont.)
+# Use your solution to decipher the following text: "lbh zhfg hayrnea jung lbh unir yrnearq"
+
+# message = list('lbh zhfg hayrnea jung lbh unir yrnearq')
+            
+# key = [['a','n'],['b','o'],['c','p'],['d','q'],['e','r'],['f','s'],['g','t'],['h','u'],['i','v'],
+#        ['j','w'],['k','x'],['l','y'],['m','z'],['n','a'],['o','b'],['p','c'],['q','d'],['r','e'],
+#        ['s','f'],['t','g'],['u','h'],['v','i'],['w','j'],['x','k'],['y','l'],['z','m']]
+
+# message_index = 0
+
+# while message_index < len(message):
+#     key_index = 0
+#     while key_index < len(key):
+#         # print(message)
+#         # print(message[message_index])
+#         if key[key_index][1] == message[message_index]:
+#             message[message_index] = key[key_index][0]
+#             # stop the < while key_index < len(key): > loop
+#             key_index = len(key)
+#         key_index +=1
+#     message_index +=1
+    
+# print(''.join(message))
+
