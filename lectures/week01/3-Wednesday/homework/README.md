@@ -62,6 +62,7 @@ def calculate():
     else: 
         return print("next time, enter the service as either 'good','fair', of 'bad'.")
 
+    tip = "%.2f" % tip
 
     print(f'tip amount: {tip}')
     print(f'total amount: {total_bill}')

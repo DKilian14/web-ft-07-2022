@@ -12,17 +12,18 @@ def calculate():
     )
     
     if (service == 'good') :
-        tip = "%.2f" % (total_bill*.20) 
+        tip = total_bill* .2
     elif (service =='fair') :
-        tip = "%.2f" % (total_bill*.15) 
+        tip = total_bill*.15
     elif (service == 'bad'):
-        tip = "%.2f" % (total_bill*.10) 
+        tip = total_bill*.10
     else: 
         return print("next time, enter the service as either 'good','fair', of 'bad'.")
 
+    total_bill = total_bill + tip
 
-    print(f'tip amount: {tip}')
-    print(f'total amount: {total_bill}')
+    print(f'tip amount: {"%.2f" % tip}')
+    print(f'total amount: {"%.2f" % total_bill}')
     
 
 tip_total = calculate()
@@ -34,33 +35,32 @@ def calculate():
     total_bill = float(input("what is the bill total?: "))
     service = input(
         """
-
     Was the service: 
     good 
     fair 
     bad   
     """
     )
-    total_per_guest = total_bill/guests
-
     
-
+    
+    
     if (service == 'good') :
-        tip = "%.2f" % (total_bill*.20) 
+        tip = total_bill* .2
     elif (service =='fair') :
-        tip = "%.2f" % (total_bill*.15) 
+        tip = total_bill*.15
     elif (service == 'bad'):
-        tip = "%.2f" % (total_bill*.10) 
+        tip = total_bill*.10
     else: 
         return print("next time, enter the service as either 'good','fair', of 'bad'.")
 
+    total_bill = total_bill + tip
+    total_per_guest = total_bill/guests
 
-    print(f'tip amount: {tip}')
-    print(f'total amount: {total_bill}')
+    print(f'tip amount: {"%.2f" % tip}')
+    print(f'total amount: {"%.2f" % total_bill}')
     print(f'Amount per person: {total_per_guest}')
 
-
-calculated_total = calculate()
+tip_total = calculate()
 
 #Question 3. 
 
