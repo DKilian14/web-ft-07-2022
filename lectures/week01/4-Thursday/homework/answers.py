@@ -234,34 +234,31 @@
 ### Matrix Multiplication
 # Given two two-dimensional lists of numbers of the size 2x2 - calculate the result of multiplying the two matrices. Print the resulting matrix.
 
-matrix1 = [[2,1],
-           [0,3]]
+# matrix1 = [[2,1],
+#            [0,3]]
 
-matrix2 = [[4,2],
-           [1,5]]
+# matrix2 = [[4,2],
+#            [1,5]]
 
-product=[[0,0],
-         [0,0]]
+# product=[[0,0],
+#          [0,0]]
 
-#iterate through rows of matrix1
-#iterate through columns of matrix2
-#iterate through rows of matrix2
 
-matrix1_row = 0
-while matrix1_row < len(matrix1):
-    matrix2_column = 0
-    while matrix2_column < len(matrix2[0]):
-        matrix2_row = 0
-        while matrix2_row < len(matrix2):
-            product[matrix1_row][matrix2_column] += matrix1[matrix1_row][matrix2_row] * matrix2[matrix2_row][matrix2_column]
+# matrix1_row = 0
+# while matrix1_row < len(matrix1):
+#     matrix2_column = 0
+#     while matrix2_column < len(matrix2[0]):
+#         matrix2_row = 0
+#         while matrix2_row < len(matrix2):
+#             product[matrix1_row][matrix2_column] += matrix1[matrix1_row][matrix2_row] * matrix2[matrix2_row][matrix2_column]
             
-            matrix2_row +=1
-        matrix2_column+=1
-    matrix1_row+=1
+#             matrix2_row +=1
+#         matrix2_column+=1
+#     matrix1_row+=1
 
-print("answer should be <[[9, 9], [3, 15]] > ")
+# print("answer should be <[[9, 9], [3, 15]] > ")
 
-print(product)
+# print(product)
 
 # How do you multiple two matrices?
 
