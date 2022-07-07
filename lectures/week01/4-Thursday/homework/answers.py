@@ -117,4 +117,23 @@
 
 # --------------------------------ANSWER------------------------------
 
-leet_alphabet = [[a,4],[e,3],[g,6],[i,1],[o,0],[s,5],[t,7]]
+# leet_alphabet = [["a","4"],["e","3"],["g","6"],["i","1"],["o","0"],["s","5"],["t","7"]]
+# statement = list(input('Write a statement: ').lower())
+# statement_index = 0
+
+
+# while statement_index < len(statement):
+#     leet_index = 0
+    
+#     while leet_index < len(leet_alphabet):
+        
+#         if leet_alphabet[leet_index][0] == statement[statement_index]:
+#             statement[statement_index] = leet_alphabet[leet_index][1]
+            
+#         leet_index +=1
+
+    
+
+#     statement_index +=1
+# statement = ''.join(statement)
+# print(statement)
