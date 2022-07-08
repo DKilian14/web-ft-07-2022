@@ -160,7 +160,7 @@
 # while word_index < len(word):
 #     vowel_index = 0
 #     while vowel_index < len(vowels):
-#         if vowels[vowel_index] == word[word_index]:
+#         if (vowels[vowel_index] == word[word_index]) and (vowels[vowel_index] == word[word_index-1]) :
 #             word[word_index] = word[word_index]*5
 #         vowel_index +=1
 #     word_index += 1
