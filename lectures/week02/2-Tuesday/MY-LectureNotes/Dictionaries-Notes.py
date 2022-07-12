@@ -14,10 +14,8 @@ zodiac = {
 }
 
 #  ---------------------- .get()
-
 # zodiac.get("Aries") >>>>>>>>>>>>>>> will return "The Warrior"
 # zodiac.get("NotInDictionary") >>>>>>>>>> will return None
-
 
 
 # ------------------------- in
@@ -38,8 +36,6 @@ zodiac = {
 
 
 # --------------------------- iterating
-
-
 # for key in zodiac: print(key," : ", zodiac[key])
 #  ^^^^^^^ will return: 
     # Aries  :  The Warrior
