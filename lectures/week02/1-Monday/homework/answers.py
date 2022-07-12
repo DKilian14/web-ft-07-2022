@@ -73,17 +73,17 @@
 
 # ------------------ANSWERS-----------------------------------------------
 
-the_list = ['hello', 'hi', 'hey','howdydoo','ohhaiMark']
+# the_list = ['hello', 'hi', 'hey','howdydoo','ohhaiMark']
 
-def shortest(list_of_strings):
-    if len(the_list)> 0:
-        shortest_string = the_list[0]
-        for i in list_of_strings:
-            if len(i) > len(shortest_string):
-                shortest_string = i
-    else: 
-        shortest_string = 'nonexistant given the parameter.'        
-    print(f"shortest string in the list is {shortest_string}")
+# def shortest(list_of_strings):
+#     if len(the_list)> 0:
+#         shortest_string = the_list[0]
+#         for i in list_of_strings:
+#             if len(i) > len(shortest_string):
+#                 shortest_string = i
+#     else: 
+#         shortest_string = 'nonexistant given the parameter.'        
+#     print(f"shortest string in the list is {shortest_string}")
     
 
-shortest(the_list)
+# shortest(the_list)
