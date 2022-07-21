@@ -29,7 +29,10 @@ html = """
 <body>
 """
 
-#? Write code here
+for i in color_data:
+    hex_color = i['hex_value']
+    # print(f'<div background-color="{hex_color}">hi</div> ')
+    html+='<div style="background-color:'+hex_color+'">hi</div>'
 
 html += """
 
