@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import imghdr
 import data 
 
@@ -6,11 +7,23 @@ import data
 
 companies = data.data
 
+=======
+import data 
+
+#? Loop through the companies data and display logo image and company name on an html page. 
+#* to run the file:  python3 companies.py > index.html
+
+companies = data.data
+
+print(companies)
+
+>>>>>>> 24ed880ede57d8ef431ecf204953c3a704ac97c7
 html = """
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Companies</title>
@@ -52,6 +65,28 @@ html+= new_html
 
 html += """
 </div>
+=======
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>  
+    
+        body{
+            margin:0px;
+        }
+        
+    </style>
+</head>
+<body>
+"""
+
+#? Write code here
+
+html += """
+
+>>>>>>> 24ed880ede57d8ef431ecf204953c3a704ac97c7
 </body>
 </html>
 
