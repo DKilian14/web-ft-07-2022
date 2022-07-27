@@ -10,7 +10,9 @@ Your HTML body should only have the following structure:
 ```html
 <html>
 
-    <head></head>
+    <head>
+        
+    </head>
 
     <body>
 
