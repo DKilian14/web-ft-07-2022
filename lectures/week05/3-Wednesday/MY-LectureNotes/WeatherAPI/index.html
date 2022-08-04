@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Info API Practice</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <style >
+    .round-1{
+        border-radius: 25px 25px 0px 0px;
+    }
+    .round-2{
+        border-radius: 30px 30px 0px 0px;
+    }
+
+
+  </style>
+</head>
+<body>
+
+    <div class="container-fluid bg-primary">
+
+
+        <header class="container d-flex justify-content-center">
+            <div class="h1">Weather Checker</div>
+        </header>
+
+
+
+        <div class="row ">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="input-group mb-3 w-75 d-flex justify-content-center">
+                    <div class="input-group-prepend d-block ">
+                        <label  for="button">City:</label>
+                            <input class="form-control mb-2" style=""  id='city' type="text"  placeholder="Chicago" aria-label="" aria-describedby="basic-addon1" value="Chicago">
+                        <label class="" for="button">State:</label>
+                            <select class="" id="state" size="1" placeholder="IL">
+                            <option value="IL">State</option>
+                            <option value="Alaska">AK</option>
+                            <option value="Alabama">AL</option>
+                            <option value="Arkansas">AR</option>
+                            <option value="Arizona">AZ</option>
+                            <option value="California">CA</option>
+                            <option value="Colorado">CO</option>
+                            <option value="Connecticut">CT</option>
+                            <option value="Dist of Columbia">DC</option>
+                            <option value="Delaware">DE</option>
+                            <option value="Florida">FL</option>
+                            <option value="Georgia">GA</option>
+                            <option value="Hawaii">HI</option>
+                            <option value="Iowa">IA</option>
+                            <option value="Idaho">ID</option>
+                            <option value="Illinois">IL</option>
+                            <option value="Indiana">IN</option>
+                            <option value="Kansas">KS</option>
+                            <option value="Kentucky">KY</option>
+                            <option value="Louisiana">LA</option>
+                            <option value="Massachusetts">MA</option>
+                            <option value="Maryland">MD</option>
+                            <option value="Maine">ME</option>
+                            <option value="Michigan">MI</option>
+                            <option value="Minnesota">MN</option>
+                            <option value="Missouri">MO</option>
+                            <option value="Mississippi">MS</option>
+                            <option value="Montana">MT</option>
+                            <option value="North Carolina">NC</option>
+                            <option value="North Dakota">ND</option>
+                            <option value="Nebraska">NE</option>
+                            <option value="New Hampshire">NH</option>
+                            <option value="New Jersey">NJ</option>
+                            <option value="New Mexico">NM</option>
+                            <option value="Nevada">NV</option>
+                            <option value="New York">NY</option>
+                            <option value="Ohio">OH</option>
+                            <option value="Oklahoma">OK</option>
+                            <option value="Oregon">OR</option>
+                            <option value="Pennsylvania">PA</option>
+                            <option value="Rhode Island">RI</option>
+                            <option value="South Carolina">SC</option>
+                            <option value="South Dakota">SD</option>
+                            <option value="Tennessee">TN</option>
+                            <option value="Texas">TX</option>
+                            <option value="Utah">UT</option>
+                            <option value="Virginia">VA</option>
+                            <option value="Vermont">VT</option>
+                            <option value="Washington">WA</option>
+                            <option value="Wisconsin">WI</option>
+                            <option value="West Virginia">WV</option>
+                            <option value="Wyoming">WY</option>
+                            </select>
+                        <button class="ml-3  btn btn-outline-secondary btn-success text-warning" type="button">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        
+    
+    
+    
+    
+    
+        
+        <div class="round-2 container map bg-warning  d-flex justify-content-center ">
+            <img class="round-1 m-5 mb-0 w-75" id="baseMap" src="https://maps.googleapis.com/maps/api/staticmap?center=Plainfield, Missouri&zoom=11&scale=1&size=2000x300&maptype=roadmap&format=png&key=AIzaSyAAe-OzsWdlgJorQfBUECWGYZp7oVZ_dEM" alt="">
+        </div>
+
+
+
+
+        <div class=" container w-90 bg-danger d-flex justify-content-center pl-5 pr-5">
+            <div class="row mb-4 mt-4  bg-success">
+                <div id="description" class="col-12 h2 d-flex justify-content-center">Report</div>
+                <div id="temp" class="col-3  d-flex justify-content-around">Temp: </div>
+                <div id="feelsLike" class="col-3 d-flex justify-content-around">Feels Like: </div>
+                <div id="dayHigh" class="col-3 d-flex justify-content-around">Day High: </div>
+                <div id="dayLow" class="col-3 d-flex justify-content-around">Day Low: </div>
+                
+                
+            </div>
+        </div>
+    
+
+        <div class="container bg-danger d-flex justify-content-center pr-5 pl-5">
+            <div class="row mb-4 mt-4 bg-secondary ">
+               
+                <div id="humidity"  class="col-4 d-flex justify-content-around">Humidity: </div>
+                <div id="windSpeed" class="col-4 d-flex justify-content-around">Wind: </div>
+                <div id="windDirection" class="col-4 d-flex ">column4</div>
+            </div>
+        </div>
+
+        <div class=" container bg-danger d-flex justify-content-center pl-5 pr-5">
+            <div class="row mb-4 mt-4 bg-primary">
+               
+                <div id="sunrise"  class="col-6 d-flex justify-content-around">Sunrise: </div>
+                <div id="sunset" class="col-4 d-flex justify-content-around">Sunset: </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-warning">footer</footer>
+
+    <script src='index.js'></script>
+    
+    <script >
+        
+        const buttonEl = document.querySelector('button')
+        const cityEL = document.querySelector('#city')
+        const stateEL = document.querySelector('#state')
+        const baseMapEl = document.querySelector('#baseMap')
+        const tempEl = document.querySelector('#temp')
+        const feelsLikeEl = document.querySelector('#feelsLike')
+        const dayHighEl = document.querySelector('#dayHigh')
+        const dayLowEl = document.querySelector('#dayLow')
+        const windSpeedEl = document.querySelector('#windSpeed')
+        const windDirectionEl = document.querySelector('#windDirection')
+        const humidityEl = document.querySelector('#humidity')
+        const descriptionEl = document.querySelector('#description')
+        const sunriseEl = document.querySelector('#sunrise')
+        const sunsetEl = document.querySelector('#sunset')
+
+        const calculateTemp = (kelvin) => {
+            let celcius = kelvin - 273.15
+            let farenheit = (celcius*1.8)+32
+            return farenheit
+        }
+        
+        const convertTime = (seconds) => {
+            let time = new Date(seconds*1000)
+            let timestr = time .toLocaleTimeString()
+            return timestr
+        } 
+
+
+
+        buttonEl.addEventListener('click', ()=>{
+            let city = cityEL.value
+            let state = stateEL.value
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e67df4bbb11a8a4f0a25d01f564b8b44`)
+            .then(response => response.json())
+            .then((response) => {
+                console.log(response)
+                let condition = response.weather[0].main
+                let description = response.weather[0].description
+                let humidity = response.main.humidity//
+                let windSpeed = response.wind.speed//
+                let windDirection = response.wind.deg < 23  ? 'North' : //
+                                    response.wind.deg < 69  ? 'Northeast': 
+                                    response.wind.deg < 113 ? 'East':
+                                    response.wind.deg < 158 ? 'SouthEast' :
+                                    response.wind.deg < 203 ? 'South' : 
+                                    response.wind.deg < 248 ? 'Southwest' : 
+                                    response.wind.deg < 293 ? 'West' : 
+                                    response.wind.deg < 338 ? 'Northwest' : 'North'
+                let isRaining =  response.rain  ?  true:  false 
+                let rainfall = isRaining === true ?  response.rain['1h']: 'not raining'
+                let feelsLike = calculateTemp(response.main.feels_like)//
+                let dayHigh = calculateTemp(response.main.temp_max) //
+                let dayLow = calculateTemp(response.main.temp_min) //
+                let sunrise = convertTime(response.sys.sunrise)
+                let sunset = convertTime(response.sys.sunset)
+                let temp = calculateTemp(response.main.temp)
+
+
+                // let time = new Date(sunrise*1000);
+                
+                // console.log(timestr)
+
+                console.log(rainfall)
+                console.log(`it is ${Math.floor(temp)} degrees`)
+
+                descriptionEl.innerHTML = `<div class=''>Currently:${description}</div>`
+                tempEl.innerHTML = `<div class=''>Temp: ${Math.floor(temp)}</div>`
+                feelsLikeEl.innerHTML = `<div class=''>Feels Like: ${Math.floor(feelsLike)}</div>`
+                dayHighEl.innerHTML = `<div class=''>Day High: ${Math.floor(dayHigh)}</div>`
+                dayLowEl.innerHTML = `<div class=''>Day Low: ${Math.floor(dayLow)}</div>`
+                humidityEl.innerHTML = `<div class=''>Humidity: ${humidity}%</div>`
+                windSpeedEl.innerHTML = `<div class=''>Wind: ${windSpeed}mph</div>`
+                windDirectionEl.innerHTML = `<div class=''>${windDirection}</div>`
+                sunriseEl.innerHTML = `<div class=''>Sunrise: ${sunrise}</div>`
+                sunsetEl.innerHTML = `<div class=''>Sunset: ${sunset}</div>`
+
+
+                
+
+
+                // let div = document.querySelector('.output')
+
+                // div.innerHTML = `<h1 class='w-90'>The tempurature in ${city} is ${Math.floor(temp)}ºf</h1>`
+                baseMapEl.src = `https://maps.googleapis.com/maps/api/staticmap?center=${city},+${state}&zoom=11&scale=1&size=600x300&maptype=roadmap&format=png&key=AIzaSyAAe-OzsWdlgJorQfBUECWGYZp7oVZ_dEM`
+            })
+            
+            } 
+        )
+        // https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid=e67df4bbb11a8a4f0a25d01f564b8b44
+        
+    </script>
+</body>
+</html>
