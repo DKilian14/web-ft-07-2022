@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="charList"></ul>
+
+    <script>
+
+        let charListEl = document.querySelector('#charList')
+
+        let charArr = []
+        for (let i=1;i<54;i++){
+            charArr.push(fetch(`https://anapioficeandfire.com/api/characters?page=${i}&pagesSize=50`))
+        }
+
+
+        let promise = Promise.all(charArr)
+
+        promise.then(resultsArr =>{
+            results = []
+            for(let i = 0;i<resultsArr.length;i++){
+                results[i] = resultsArr[i].json()
+                console.log(results[i])
+            }
+
+
+            return Promise.all(results)
+        })
+        .then(dataArr=>{
+            let charInfoArr = []
+            let url = ''
+            for (let page = 1;page<50;page++){
+                charInfoArr.push(fetch(`https://anapioficeandfire.com/api/characters/${page}`))
+                let charInfoPromise = Promise.all(charInfoArr)
+                charInfoPromise.then(charResultsArr=>{
+                    charResults = []
+                    for(let j=0;j<charResultsArr.length;j++){
+                        charResults[j] = charResultsArr[j].json()
+                        console.log("THIS GAVE ME charResults[j]", charResults[j])
+                    }
+                })
+            }
+
+            console.log(dataArr)
+
+
+
+
+        })
+        
+
+
+        
+       
+
+
+    </script>
+</body>
+</html>
