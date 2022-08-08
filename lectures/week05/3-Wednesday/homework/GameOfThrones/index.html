@@ -8,14 +8,14 @@
 </head>
 <body>
     
-    <ul id="charList"></ul>
+    <div id="charList"></div>
 
     <script>
 
         let charListEl = document.querySelector('#charList')
 
         let charArr = []
-        for (let i=1;i<54;i++){
+        for (let i=1;i<200;i++){
             charArr.push(fetch(`https://anapioficeandfire.com/api/characters?page=${i}&pagesSize=50`))
         }
 
@@ -26,31 +26,64 @@
             results = []
             for(let i = 0;i<resultsArr.length;i++){
                 results[i] = resultsArr[i].json()
-                console.log(results[i])
+                // console.log("AHHHH" ,results[i])
             }
 
 
             return Promise.all(results)
         })
         .then(dataArr=>{
-            let charInfoArr = []
-            let url = ''
-            for (let page = 1;page<50;page++){
-                charInfoArr.push(fetch(`https://anapioficeandfire.com/api/characters/${page}`))
-                let charInfoPromise = Promise.all(charInfoArr)
-                charInfoPromise.then(charResultsArr=>{
-                    charResults = []
-                    for(let j=0;j<charResultsArr.length;j++){
-                        charResults[j] = charResultsArr[j].json()
-                        console.log("THIS GAVE ME charResults[j]", charResults[j])
+            let charListElString = ''
+            let longCharArr = []
+            count = 1
+            dataArr.forEach((page)=>{
+                console.log(`Looking at page:${count}`)
+                count++
+                page.forEach((charInfo)=>{
+                    // console.log(`looking at char: ${charInfo.name}`) 
+                    // console.log(charInfo.allegiances[0]? charInfo.allegiances:'none')
+                    charInfo.name = charInfo.name? charInfo.name:charInfo.aliases //If character has no name, change their name to their alias name
+                    if (charInfo.allegiances[0]){
+
+
+                        let allegianceArr = []
+                        charInfo.allegiances.forEach((allegiance)=>{
+                            // console.log(allegiance)
+                            allegianceArr.push(fetch(allegiance))
+                        })
+                        let promise2 = Promise.all(allegianceArr)
+                        promise2.then(resultsArr =>{
+                            promise2Results = []
+                            for(let i = 0;i<resultsArr.length;i++){
+                                promise2Results[i] = resultsArr[i].json()
+                            }
+                            // console.log(promise2Results)
+                            return Promise.all(promise2Results)
+                        })
+                        .then(houseDataArr=>{
+                            houseURLtoName = []
+
+                            houseDataArr.forEach(houseurl =>{
+                                houseURLtoName.push(houseurl.name)
+                            })
+
+                            charInfo.allegiances = houseURLtoName
+                            console.log(charInfo)
+                            charListElString += `<div>${charInfo.name}<li>${charInfo.allegiances}</li> </div>`
+                        })
+                        
+                    }else{
+                        charListElString += `<div>${charInfo.name}</div>`
                     }
+
+
+
+                    longCharArr.push(charInfo)
+                    charListEl.innerHTML = charListElString  
                 })
-            }
-
-            console.log(dataArr)
-
-
-
+              
+            })
+        
 
         })
         
